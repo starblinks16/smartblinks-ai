@@ -1,0 +1,52 @@
+# Render Blueprint for SmartBlinks AI
+# This file enables one-click deployment on Render
+
+services:
+  # Backend API Service
+  - type: web
+    name: smartblinks-ai-backend
+    env: node
+    region: oregon
+    rootDir: backend
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: PORT
+        value: "3000"
+      - key: NODE_ENV
+        value: production
+      - key: CTRADER_CLIENT_ID
+        sync: false
+      - key: CTRADER_CLIENT_SECRET
+        sync: false
+      - key: CTRADER_REDIRECT_URI
+        fromService: smartblinks-ai-backend
+        inRegion: oregon
+        value: "https://{{ env "RENDER_EXTERNAL_HOSTNAME" }}/api/auth/callback"
+      - key: FRONTEND_URL
+        fromService:
+          name: smartblinks-ai-frontend
+          type: web
+          envVarKey: RENDER_EXTERNAL_URL
+      - key: CORS_ORIGIN
+        value: "*"
+
+  # Frontend Static Site
+  - type: web
+    name: smartblinks-ai-frontend
+    env: static
+    region: oregon
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    headers:
+      - path: /*
+        name: Cache-Control
+        value: public, max-age=0, must-revalidate
+    envVars:
+      - key: VITE_API_URL
+        fromService:
+          name: smartblinks-ai-backend
+          type: web
+          envVarKey: RENDER_EXTERNAL_URL
