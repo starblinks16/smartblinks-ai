@@ -1,0 +1,265 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+/* Summary Cards */
+.summary {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-md);
+}
+
+.summaryCard {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: var(--spacing-lg);
+  background: var(--bg-card);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+}
+
+.summaryLabel {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.summaryValue {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.positive {
+  color: var(--success) !important;
+}
+
+.negative {
+  color: var(--danger) !important;
+}
+
+/* Section */
+.section {
+  background: var(--bg-card);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-bottom: 1px solid var(--glass-border);
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.05) 0%, transparent 100%);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.sectionIcon {
+  color: var(--accent-gold);
+}
+
+/* Empty State */
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-xl) * 2;
+  color: var(--text-muted);
+}
+
+.emptyIcon {
+  font-size: 3rem;
+  opacity: 0.5;
+}
+
+.emptyText {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.emptyHint {
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+/* Positions List */
+.positionsList {
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-md);
+  gap: var(--spacing-md);
+}
+
+.positionCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+}
+
+.positionCard:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 215, 0, 0.2);
+}
+
+.positionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.positionSymbol {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.positionType {
+  padding: 4px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.buy {
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--success);
+}
+
+.sell {
+  background: rgba(239, 68, 68, 0.15);
+  color: var(--danger);
+}
+
+.symbolName {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--accent-gold);
+}
+
+.positionProfit {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.profitPercent {
+  font-size: 0.75rem;
+  font-weight: 500;
+  opacity: 0.8;
+}
+
+/* Position Details */
+.positionDetails {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-md);
+  padding: var(--spacing-md);
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: var(--radius-sm);
+}
+
+.detailItem {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: center;
+}
+
+.detailIcon {
+  font-size: 0.9rem;
+  color: var(--accent-gold);
+  margin-bottom: 4px;
+}
+
+.detailLabel {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.detailValue {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* Position Footer */
+.positionFooter {
+  display: flex;
+  justify-content: space-between;
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--glass-border);
+}
+
+.footerItem {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.footerIcon {
+  color: var(--text-muted);
+}
+
+.footerLabel {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.footerValue {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 1024px) {
+  .summary {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .summary {
+    grid-template-columns: 1fr;
+  }
+  
+  .positionDetails {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

@@ -1,0 +1,330 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-xl);
+}
+
+.robotHead {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Outer Ring */
+.outerRing {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.rotatingRing {
+  transform-origin: center;
+  animation: rotate linear infinite;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Main Head */
+.head {
+  position: relative;
+  width: 140px;
+  height: 160px;
+  background: linear-gradient(180deg, #1a1f2e 0%, #0d1117 100%);
+  border-radius: 70px 70px 50px 50px;
+  border: 2px solid var(--glow-color);
+  box-shadow: var(--glow), inset 0 0 30px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Neural Net */
+.neuralNet {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0.3;
+}
+
+.neuralNode {
+  animation: neuralPulse 1s ease-in-out infinite;
+}
+
+@keyframes neuralPulse {
+  0%, 100% { opacity: 0.3; r: 2; }
+  50% { opacity: 1; r: 3; }
+}
+
+/* Face Plate */
+.facePlate {
+  position: relative;
+  width: 80%;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Eyes */
+.eyes {
+  display: flex;
+  gap: 30px;
+}
+
+.eye {
+  position: relative;
+  width: 35px;
+  height: 35px;
+  background: #0a0e17;
+  border-radius: 50%;
+  border: 2px solid var(--eye-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 15px var(--eye-color);
+  animation: eyePulse 2s ease-in-out infinite;
+}
+
+@keyframes eyePulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.eyeInner {
+  width: 25px;
+  height: 25px;
+  background: linear-gradient(135deg, var(--eye-color) 0%, transparent 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.eyePupil {
+  width: 10px;
+  height: 10px;
+  background: var(--eye-color);
+  border-radius: 50%;
+  animation: pupilMove 3s ease-in-out infinite;
+  box-shadow: 0 0 10px var(--eye-color);
+}
+
+@keyframes pupilMove {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(3px, -2px); }
+  50% { transform: translate(-2px, 2px); }
+  75% { transform: translate(2px, 3px); }
+}
+
+.eyeGlow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--eye-color) 0%, transparent 70%);
+  opacity: 0.3;
+  animation: glowPulse 2s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.2; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.2); }
+}
+
+/* Mouth */
+.mouth {
+  width: 40px;
+  height: 8px;
+  background: #0a0e17;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.mouthGlow {
+  width: 100%;
+  height: 100%;
+  animation: mouthPulse 1s ease-in-out infinite;
+  border-radius: 4px;
+}
+
+@keyframes mouthPulse {
+  0%, 100% { opacity: 0.3; transform: scaleX(0.8); }
+  50% { opacity: 0.8; transform: scaleX(1); }
+}
+
+/* Processing Bar */
+.processingBar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: #0a0e17;
+  display: flex;
+  gap: 2px;
+  padding: 0 10px;
+}
+
+.processingSegment {
+  flex: 1;
+  height: 100%;
+  border-radius: 2px;
+  animation: processWave 1s ease-in-out infinite;
+}
+
+@keyframes processWave {
+  0%, 100% { opacity: 0.2; transform: scaleY(0.5); }
+  50% { opacity: 1; transform: scaleY(1); }
+}
+
+/* Crown */
+.crown {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.crownGem {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  animation: gemPulse 2s ease-in-out infinite;
+}
+
+@keyframes gemPulse {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.2); opacity: 1; }
+}
+
+.crownSpikes {
+  display: flex;
+  gap: 5px;
+  margin-top: -5px;
+}
+
+.spike {
+  width: 4px;
+  height: 15px;
+  border-radius: 2px 2px 0 0;
+  animation: spikePulse 1.5s ease-in-out infinite;
+}
+
+@keyframes spikePulse {
+  0%, 100% { opacity: 0.5; transform: scaleY(0.8); }
+  50% { opacity: 1; transform: scaleY(1); }
+}
+
+/* Status */
+.statusContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.statusLabel {
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  animation: statusPulse 2s ease-in-out infinite;
+}
+
+@keyframes statusPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.confidence {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+/* State Info */
+.stateInfo {
+  display: flex;
+  gap: var(--spacing-xl);
+}
+
+.strategy, .personality {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.infoLabel {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.infoValue {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .robotHead {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .head {
+    width: 100px;
+    height: 120px;
+  }
+  
+  .eye {
+    width: 25px;
+    height: 25px;
+  }
+  
+  .eyeInner {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .eyePupil {
+    width: 7px;
+    height: 7px;
+  }
+  
+  .crown {
+    top: -20px;
+  }
+  
+  .crownGem {
+    width: 12px;
+    height: 12px;
+  }
+  
+  .spike {
+    width: 3px;
+    height: 10px;
+  }
+}

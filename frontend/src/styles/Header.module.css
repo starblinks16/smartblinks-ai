@@ -1,0 +1,188 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-md) var(--spacing-lg);
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border-bottom: 1px solid var(--glass-border);
+  height: 70px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+}
+
+.menuButton {
+  display: none;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-secondary);
+  font-size: 1.25rem;
+  transition: all var(--transition-fast);
+}
+
+.menuButton:hover {
+  background: rgba(255, 215, 0, 0.1);
+  color: var(--accent-gold);
+}
+
+@media (max-width: 1024px) {
+  .menuButton {
+    display: flex;
+  }
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+}
+
+.brandName {
+  font-size: 1.1rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-cyan) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.brandTag {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ticker {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  background: rgba(255, 215, 0, 0.05);
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  border-radius: var(--radius-xl);
+}
+
+.tickerSymbol {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent-gold);
+  letter-spacing: 1px;
+}
+
+.tickerPrice {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.tickerChange {
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+}
+
+.positive {
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--success);
+}
+
+.negative {
+  background: rgba(239, 68, 68, 0.15);
+  color: var(--danger);
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+}
+
+.accountInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.accountBalance {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.accountEquity {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.notificationButton {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-secondary);
+  font-size: 1.25rem;
+  transition: all var(--transition-fast);
+}
+
+.notificationButton:hover {
+  background: rgba(255, 215, 0, 0.1);
+  color: var(--accent-gold);
+}
+
+.notificationBadge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  min-width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--danger);
+  color: white;
+  font-size: 0.65rem;
+  font-weight: 700;
+  border-radius: 9px;
+  padding: 0 4px;
+}
+
+@media (max-width: 768px) {
+  .brand {
+    display: none;
+  }
+  
+  .accountInfo {
+    display: none;
+  }
+  
+  .ticker {
+    padding: var(--spacing-xs) var(--spacing-md);
+  }
+  
+  .tickerPrice {
+    font-size: 1rem;
+  }
+}

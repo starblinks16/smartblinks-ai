@@ -1,0 +1,208 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.headerIcon {
+  font-size: 1.25rem;
+  color: var(--accent-gold);
+}
+
+.headerTitle {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-md);
+}
+
+.button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-lg) var(--spacing-md);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--glass-border);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.button:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.buttonIcon {
+  font-size: 1.5rem;
+}
+
+.buttonLabel {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Start Button */
+.start {
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+.start .buttonIcon {
+  color: var(--success);
+}
+
+.start:hover:not(:disabled) {
+  background: rgba(16, 185, 129, 0.1);
+  border-color: var(--success);
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.2);
+}
+
+.start .buttonLabel {
+  color: var(--success);
+}
+
+/* Pause Button */
+.pause .buttonIcon {
+  color: var(--info);
+}
+
+.pause:hover:not(:disabled) {
+  background: rgba(59, 130, 246, 0.1);
+  border-color: var(--info);
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
+}
+
+.pause .buttonLabel {
+  color: var(--info);
+}
+
+/* Stop Button */
+.stop {
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.stop .buttonIcon {
+  color: var(--danger);
+}
+
+.stop:hover:not(:disabled) {
+  background: rgba(239, 68, 68, 0.1);
+  border-color: var(--danger);
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.2);
+}
+
+.stop .buttonLabel {
+  color: var(--danger);
+}
+
+/* Emergency Button */
+.emergency {
+  border-color: rgba(245, 158, 11, 0.3);
+  background: rgba(245, 158, 11, 0.05);
+}
+
+.emergency .buttonIcon {
+  color: var(--warning);
+}
+
+.emergency:hover:not(:disabled) {
+  background: rgba(245, 158, 11, 0.1);
+  border-color: var(--warning);
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.3);
+  animation: emergencyPulse 0.5s ease-in-out infinite;
+}
+
+@keyframes emergencyPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+}
+
+.emergency .buttonLabel {
+  color: var(--warning);
+}
+
+/* Status Display */
+.statusDisplay {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-md);
+  padding: var(--spacing-md);
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: var(--radius-md);
+}
+
+.statusRow {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+}
+
+.statusLabel {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.statusValue {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* Loading */
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md);
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--glass-border);
+  border-top-color: var(--accent-gold);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 768px) {
+  .controls {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .statusDisplay {
+    grid-template-columns: 1fr;
+  }
+}
